@@ -1,0 +1,64 @@
+.item {
+    box-shadow: 0 0 0 3px #ccc;
+    padding: 15px;
+    margin-top: 18px;
+}
+
+.item .name {
+    color: rgb(246, 122, 21);
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.item .price {
+    text-align: center;
+    color: rgb(31, 20, 20);
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.item button {
+    background-color: rgb(6, 193, 131) !important;
+    color: white;
+    margin-top: 8px;
+}
+
+input {
+    border: 2px solid black !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+input:focus {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.ant-select-selector {
+    border: 2px solid black !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.category {
+    border: 2px solid grey !important;
+    margin-right: 49px !important;
+    align-items: center !important;
+    padding-left: 25px !important;
+    border-radius: 9px !important;
+    cursor: pointer;
+}
+
+.category h3 {
+    margin-right: 25px !important;
+}
+
+.category img {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    margin: -3px;
+}
+
+.selected-category {
+    border: 5px solid rgb(30, 123, 126) !important;
+}
