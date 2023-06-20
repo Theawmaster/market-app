@@ -62,3 +62,9 @@ input:focus {
 .selected-category {
     border: 5px solid rgb(30, 123, 126) !important;
 }
+
+.subtotal h3{
+    color: rgb(79, 134, 238) !important;
+    font-size: 35px;
+    padding: 15px;
+}

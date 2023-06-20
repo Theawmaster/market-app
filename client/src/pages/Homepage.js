@@ -10,7 +10,7 @@ const Homepage = () => {
   const [itemsData, setItemsData] = useState([]);
   const dispatch = useDispatch();
   const { loading } = useSelector((state) => state.rootReducer);
-  const [selectCategory, setSelectCategory] = useState("Meat");
+  const [selectCategory, setSelectCategory] = useState("meats");
   const category_type = [
     {
       name: "meats",

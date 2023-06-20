@@ -1,5 +1,5 @@
 import { Button } from "antd";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import Cart from "./pages/Cart";
 import Items from "./pages/Items";
@@ -11,11 +11,12 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/home" element={<Homepage />} />
-          <Route path="/items" element={<Items />} />
-          <Route path="/cart" element={<Cart />} />
+          <Route path="/home" element={<ProtectedRoute><Homepage /></ProtectedRoute>} />
+          <Route path="/items" element={<ProtectedRoute><Items /></ProtectedRoute>} />
+          <Route path="/cart" element={<ProtectedRoute><Cart /></ProtectedRoute>} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Login />} />
         </Routes>
       </BrowserRouter>
     </div>
@@ -23,3 +24,13 @@ function App() {
 }
 
 export default App;
+
+export function ProtectedRoute({children}){
+  if(localStorage.getItem("pos-user"))
+  {
+    return children
+  }
+  else {
+    return <Navigate to="/login" />
+  }
+}

@@ -1,5 +1,5 @@
-import { Table } from "antd";
-import React from "react";
+import { Table, Button, Modal } from "antd";
+import React, { useState, useEffect} from "react";
 import DefaultLayout from "../components/DefaultLayout";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -11,8 +11,9 @@ import {
 
 export default function Cart() {
   const { cartItems } = useSelector((state) => state.rootReducer);
+  const [receipt, setReceipt] = useState(false)
   const dispatch = useDispatch();
-
+  const [subTotal, setSubTotal] = useState(0)
   const increase_num = (record) => {
     dispatch({
       type: "updateCart",
@@ -44,6 +45,7 @@ export default function Cart() {
     {
       title: "Price",
       dataIndex: "price",
+      render: (price) => <span>${price.toFixed(2)}</span>,
     },
     {
       title: "Number",
@@ -73,10 +75,30 @@ export default function Cart() {
     },
   ];
 
+  useEffect(() => {
+  let temp = 0;
+  cartItems.forEach((item) => {
+    temp = temp + item.price * item.number;
+  });
+
+  setSubTotal(temp);
+}, [cartItems]);
+
+
   return (
     <DefaultLayout>
       <h2>Cart</h2>
       <Table columns={table_col} dataSource={cartItems} bordered />
+      <hr />
+      <div className="d-flex justify-content-end flex-column align-items-end">
+        <div className="subtotal"> 
+          <h3>Sub Total:<b>${subTotal.toFixed(2)}</b></h3>
+        </div>
+
+        <Button type="primary" onClick={()=>setReceipt(true)}>Place Order</Button>
+      </div>
+
+      <Modal title="Confirm order?" visible={receipt}></Modal>
     </DefaultLayout>
   );
 }

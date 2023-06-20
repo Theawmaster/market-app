@@ -4,7 +4,7 @@ const userSchema = mongoose.Schema({
   name: { type: String, required: true },
   userId: { type: String, required: true },
   password: { type: String, required: true },
-  approved: { type: Boolean, require: false},
+  verified: { type: Boolean, require: true},
 }, {timestamps : true});
 
 const userModel = mongoose.model("users", userSchema);

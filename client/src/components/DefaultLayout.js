@@ -50,6 +50,11 @@ const DefaultLayout = (props) => {
               label: <Link to="/home">Home</Link>,
             },
             {
+              key: "/cart",
+              icon: <ShoppingCartOutlined />,
+              label: <Link to="/cart">Cart</Link>,
+            },
+            {
               key: " /receipts",
               icon: <DollarOutlined />,
               label: <Link to="/receipts">Receipts</Link>,
@@ -68,6 +73,10 @@ const DefaultLayout = (props) => {
               key: "/logout",
               icon: <LogoutOutlined />,
               label: "Logout",
+              onClick: () => {
+                localStorage.removeItem("pos-user")
+                navigate("/login")
+              }
             },
           ]}
         />
