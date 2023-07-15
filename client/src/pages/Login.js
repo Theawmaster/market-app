@@ -10,20 +10,22 @@ const Login = () => {
   const navigate = useNavigate()
   const onFinish = (values) => {
     dispatch({type:"showLoading"})
-    axios.post("/api/users/login", values).then((res)=>{
+    axios.post("/api/users/login", values)
+    .then((res)=>{
       dispatch({type:"hideLoading"})
       message.success("Login successful!")
-      localStorage.setItem("pos-user", JSON.stringify(res.data))
+      localStorage.setItem("pos-user", JSON.stringify(res.data)) // make sure res.data includes id
       navigate("/home")
-    }).catch(()=>{
-      dispatch({type:"hideLoading"})
-      message.error("Something went wrong..")
     })
+    .catch((error)=>{
+      dispatch({type:"hideLoading"})
+      console.log(error); // Log any errors to the console
+      message.error("Invalid/Empty User ID or Password!")
+    })    
   };
 
   useEffect(() => {
-    if(localStorage.getItem("pos-user"))
-    navigate("/home")
+    if(localStorage.getItem("pos-user")) navigate("/home")
   }, [])
 
   return (

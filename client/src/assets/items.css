@@ -17,6 +17,11 @@
     font-weight: normal;
 }
 
+.item:hover{
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+}
+
 .item button {
     background-color: rgb(6, 193, 131) !important;
     color: white;
@@ -67,4 +72,11 @@ input:focus {
     color: rgb(79, 134, 238) !important;
     font-size: 35px;
     padding: 15px;
+}
+
+@media only screen and (max-width: 600px) {
+    .categories {
+        width: 100%;
+        overflow-x: scroll;
+    }
 }

@@ -18,7 +18,7 @@ const Homepage = () => {
     },
     {
       name: "Vegetables",
-      imgURL: "https://wallpapercrafter.com/desktop/273669-various-colorful-vegetables-at-a-stallvarious-vege.jpg",
+      imgURL: "https://images.alphacoders.com/127/1274681.jpg",
     },
     {
       name: "Fruits",
@@ -47,7 +47,7 @@ const Homepage = () => {
 
   return (
     <DefaultLayout>
-        <div className="d-flex">
+        <div className="d-flex categories">
           {category_type.map((category)=>{
             return <div
               onClick={()=>setSelectCategory(category.name)}
