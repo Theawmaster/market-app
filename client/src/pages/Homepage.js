@@ -23,6 +23,14 @@ const Homepage = () => {
     {
       name: "Fruits",
       imgURL: "https://wallpaperaccess.com/full/2329950.jpg",
+    },
+    {
+      name: "Beverages",
+      imgURL: "https://wallpaperaccess.com/full/6271085.jpg",
+    },
+    {
+      name: "Snacks",
+      imgURL: "https://wallpaperaccess.com/full/1891216.jpg",
     }
   ]
   const getAllItems = () => {
